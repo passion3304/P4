@@ -39,6 +39,7 @@ Route::get('/tasks/confirm-delete/{id?}', 'taskController@getConfirmDelete');
 Route::get('/tasks/delete/{id?}', 'taskController@getDoDelete');
 Route::get('/tasks', 'taskController@getIndex');
 Route::get('/tasks/show/{title?}', 'taskController@getShow');
+Route::get('/tasks/all', 'taskController@getAll');
 
 Route::get('/debug', function() {
 

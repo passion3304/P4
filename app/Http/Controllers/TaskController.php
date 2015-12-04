@@ -72,14 +72,21 @@ class taskController extends Controller {
      * Responds to requests to GET /tasks/create
      */
     public function getCreate() {
-        $authorModel = new \App\Author();
-        $authors_for_dropdown = $authorModel->getAuthorsForDropdown();
-        # Get all the possible tags so we can include them with checkboxes in the view
-        $tagModel = new \App\Tag();
-        $tags_for_checkbox = $tagModel->getTagsForCheckboxes();
-        return view('tasks.create')
-            ->with('authors_for_dropdown',$authors_for_dropdown)
-            ->with('tags_for_checkbox',$tags_for_checkbox);
+        # Instantiate a new task Model object
+        $task = new \App\Task();
+
+        # Set the parameters
+        # Note how each parameter corresponds to a field in the table
+        $task->title = 'New Task';
+        $task->detail = 'Go to the Store';
+        $task->owner = 'Charlie';
+        $task->status = 'In progress';
+
+        # Invoke the Eloquent save() method
+        # This will generate a new row in the `tasks` table, with the above data
+        $task->save();
+
+        echo 'Added: '.$task->title;
     }
     /**
      * Responds to requests to POST /tasks/create
@@ -120,9 +127,21 @@ class taskController extends Controller {
     public function getShow($title = null) {
         return view('tasks.show')->with('title', $title);
     }
-    /**
-	*
-	*/
+    public function getAll($title = null) {
+        $tasks = \App\Task::all();
+
+        # Make sure we have results before trying to print them...
+        if(!$tasks->isEmpty()) {
+
+            // Output the tasks
+            foreach($tasks as $task) {
+                echo $task->title.'<br>';
+            }
+        }
+        else {
+            echo 'No tasks found';
+        }
+    }
     public function getConfirmDelete($task_id) {
         $task = \App\task::find($task_id);
         return view('tasks.delete')->with('task', $task);
