@@ -44,8 +44,8 @@
                 <li><a href='/logout'>Log out {{ $user->name }}</a></li>
             @else
                 <li><a href='/'>Home</a></li>
-                <li><a href='/login'>Log in</a></li>
-                <li><a href='/register'>Register</a></li>
+                <li><a href='/tasks/all'>See All Tasks</a></li>
+                <li><a href='/tasks/create'>Add Task</a></li>
             @endif
         </ul>
     </nav>
