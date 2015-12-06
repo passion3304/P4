@@ -32,7 +32,7 @@
 
     <header>
         <a href='/'>
-        <img src='/images/MainLogo.jpg' alt='TaskMaster Logo' class="MainLogo">
+        <img src='/images/MainLogo.PNG' alt='TaskMaster Logo' class="MainLogo">
         </a>
     </header>
 
