@@ -71,6 +71,7 @@ class taskController extends Controller {
      */
     public function getCreate() {
         return view('tasks.create');
+
         # Instantiate a new task Model object
         #$task = new \App\Task();
 
@@ -91,19 +92,20 @@ class taskController extends Controller {
      * Responds to requests to POST /tasks/create
      */
     public function postCreate(Request $request) {
+        
         $this->validate(
             $request,
             [
                 'title' => 'required|min:5',
                 'detail' => 'required|min:5',
                 'status' => 'required|min:4',
+                'owner' => 'required|min:4',
               ]
         );
         # Enter task into the database
         $task = new \App\task();
         $task->title = $request->title;
         $task->detail = $request->detail;
-        $task->user_id = \Auth::id(); # <--- NEW LINE
         $task->owner = $request->owner;
         $task->status = $request->status;
         $task->save();
