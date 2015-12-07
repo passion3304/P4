@@ -41,6 +41,24 @@ Route::get('/tasks', 'taskController@getIndex');
 Route::get('/tasks/show/{title?}', 'taskController@getShow');
 Route::get('/tasks/all', 'taskController@getAll');
 
+/*----------------------------------------------------
+/login
+-----------------------------------------------------*/
+# Show login form
+Route::get('/login', 'Auth\AuthController@getLogin');
+
+# Process login form
+Route::post('/login', 'Auth\AuthController@postLogin');
+
+# Process logout
+Route::get('/logout', 'Auth\AuthController@getLogout');
+
+# Show registration form
+Route::get('/register', 'Auth\AuthController@getRegister');
+
+# Process registration form
+Route::post('/register', 'Auth\AuthController@postRegister');
+
 Route::get('/debug', function() {
 
     echo '<pre>';
