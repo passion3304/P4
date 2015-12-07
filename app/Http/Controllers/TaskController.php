@@ -10,9 +10,7 @@ class taskController extends Controller {
     * Responds to requests to GET /tasks
     */
     public function getIndex(Request $request) {
-        // Get all the tasks "owned" by the current logged in users
-        // Sort in descending order by id
-        $tasks = \App\task::where('user_id','=',\Auth::id())->orderBy('id','DESC')->get();
+        $tasks = \App\Task::all();
         return view('tasks.index')->with('tasks',$tasks);
     }
     /**
@@ -72,21 +70,22 @@ class taskController extends Controller {
      * Responds to requests to GET /tasks/create
      */
     public function getCreate() {
+        return view('tasks.create');
         # Instantiate a new task Model object
-        $task = new \App\Task();
+        #$task = new \App\Task();
 
         # Set the parameters
         # Note how each parameter corresponds to a field in the table
-        $task->title = 'New Task';
-        $task->detail = 'Go to the Store';
-        $task->owner = 'Charlie';
-        $task->status = 'In progress';
+        #$task->title = 'New Task';
+        #$task->detail = 'Go to the Store';
+        #$task->owner = 'Charlie';
+        #$task->status = 'In progress';
 
         # Invoke the Eloquent save() method
         # This will generate a new row in the `tasks` table, with the above data
-        $task->save();
+        #$task->save();
 
-        echo 'Added: '.$task->title;
+        #echo 'Added: '.$task->title;
     }
     /**
      * Responds to requests to POST /tasks/create
@@ -96,27 +95,19 @@ class taskController extends Controller {
             $request,
             [
                 'title' => 'required|min:5',
-                'cover' => 'required|url',
-                'published' => 'required|min:4',
+                'detail' => 'required|min:5',
+                'status' => 'required|min:4',
               ]
         );
         # Enter task into the database
         $task = new \App\task();
         $task->title = $request->title;
-        $task->author_id = $request->author;
+        $task->detail = $request->detail;
         $task->user_id = \Auth::id(); # <--- NEW LINE
-        $task->cover = $request->cover;
-        $task->published = $request->published;
-        $task->purchase_link = $request->purchase_link;
+        $task->owner = $request->owner;
+        $task->status = $request->status;
         $task->save();
-        # Add the tags
-        if($request->tags) {
-            $tags = $request->tags;
-        }
-        else {
-            $tags = [];
-        }
-        $task->tags()->sync($tags);
+
         # Done
         \Session::flash('flash_message','Your task was added!');
         return redirect('/tasks');

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TaskController@getIndex');
 
 Route::get('/practice', function() {
 
@@ -30,7 +28,6 @@ Route::get('/practice', function() {
 /*----------------------------------------------------
 /tasks
 -----------------------------------------------------*/
-Route::get('/', 'WelcomeController@getIndex');
 Route::get('/tasks/create', 'taskController@getCreate');
 Route::post('/tasks/create', 'taskController@postCreate');
 Route::get('/tasks/edit/{id?}', 'taskController@getEdit');

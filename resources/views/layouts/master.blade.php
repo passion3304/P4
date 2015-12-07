@@ -41,7 +41,7 @@
             @if(Auth::check())
                 <li><a href='/'>Home</a></li>
                 <li><a href='/tasks/create'>Add a task</a></li>
-                <li><a href='/logout'>Log out {{ $user->name }}</a></li>
+                <li><a href='/logout'>Log out </a></li>
             @else
                 <li><a href='/'>Home</a></li>
                 <li><a href='/tasks/all'>See All Tasks</a></li>
