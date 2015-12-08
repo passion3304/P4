@@ -44,9 +44,19 @@ nav ul {
 
 nav ul li {
     display:inline;
-    background-color:#eee;
-    padding:5px;
+    background-color:#3399f3;
+    padding: 8px 10px;
     margin-right:5px;
+}
+nav ul li:hover {
+    background-color:#87CEFA;
+}
+nav ul li a{
+    color: #FFF;
+}
+nav ul li a:hover{
+    color: #FFF;
+    text-decoration: none;
 }
 
 
