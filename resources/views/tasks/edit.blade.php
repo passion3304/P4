@@ -1,27 +1,22 @@
 @extends('layouts.master')
 
 @section('title')
-    Create task
+    Edit task
 @stop
-
-
-{{--
-This `head` section will be yielded right before the closing </head> tag.
-Use it to add specific things that *this* View needs in the head,
-such as a page specific styesheets.
---}}
-@section('head')
-    {{-- <link href="/css/tasks/create.css" type='text/css' rel='stylesheet'> --}}
-@stop
-
 
 
 @section('content')
 
-    <h1>Add a new task</h1>
-    <form method='POST' action='/tasks/create'>
+    <h1>Edit</h1>
+
+
+    <form method='POST' action='/tasks/edit'>
 
         <input type='hidden' value='{{ csrf_token() }}' name='_token'>
+
+        <input type='hidden' name='id' value='{{ $task->id }}'>
+
+<input type='hidden' value='{{ csrf_token() }}' name='_token'>
 
         <div class='form-group'>
             <label>* Title:</label>
@@ -29,7 +24,7 @@ such as a page specific styesheets.
                 type='text'
                 id='title'
                 name='title'
-                value='{{ old('title','Mow the Lawn') }}'
+                value='{{$task->title}}'
             >
         </div>
 
@@ -39,7 +34,7 @@ such as a page specific styesheets.
                 type='text'
                 id='detail'
                 name='detail'
-                value='{{ old('detail','Backyard mowing') }}'
+                value='{{$task->detail}}'
             >
             </select>
         </div>
@@ -50,7 +45,7 @@ such as a page specific styesheets.
                 type='text'
                 id='status'
                 name="status"
-                value='{{ old('status','Not Started') }}'
+                value='{{$task->status}}'
                 >
         </div>
 
@@ -60,23 +55,11 @@ such as a page specific styesheets.
                 type='text'
                 id='owner'
                 name="owner"
-                value='{{ old('owner','Brendan') }}'
+                value='{{$task->owner}}'
                 >
         </div>
 
-        <button type="submit" class="btn btn-primary">Add task</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
     </form>
 
-   
-
-@stop
-
-
-{{--
-This `body` section will be yielded right before the closing </body> tag.
-Use it to add specific things that *this* View needs at the end of the body,
-such as a page specific JavaScript files.
---}}
-@section('body')
-    {{-- <script src="/js/tasks/create.js"></script> --}}
 @stop

@@ -17,33 +17,8 @@ class taskController extends Controller {
     * Responds to requests to GET /tasks/edit/{$id}
     */
     public function getEdit($id = null) {
-        # Get this task and eager load its tags
-        $task = \App\task::with('tags')->find($id);
-        if(is_null($task)) {
-            \Session::flash('flash_message','task not found.');
-            return redirect('\tasks');
-        }
-        # Get all the possible authors so we can build the authors dropdown in the view
-        $authorModel = new \App\Author();
-        $authors_for_dropdown = $authorModel->getAuthorsForDropdown();
-        # Get all the possible tags so we can include them with checkboxes in the view
-        $tagModel = new \App\Tag();
-        $tags_for_checkbox = $tagModel->getTagsForCheckboxes();
-        /*
-        Create a simple array of just the tag names for tags associated with this task;
-        will be used in the view to decide which tags should be checked off
-        */
-        $tags_for_this_task = [];
-        foreach($task->tags as $tag) {
-            $tags_for_this_task[] = $tag->name;
-        }
-        return view('tasks.edit')
-            ->with([
-                'task' => $task,
-                'authors_for_dropdown' => $authors_for_dropdown,
-                'tags_for_checkbox' => $tags_for_checkbox,
-                'tags_for_this_task' => $tags_for_this_task,
-            ]);
+        $task = \App\Task::find($id);
+        return view('tasks.edit')->with('task',$task);
     }
     /**
     * Responds to requests to POST /tasks/edit
@@ -93,17 +68,8 @@ class taskController extends Controller {
      */
     public function postCreate(Request $request) {
         
-        $this->validate(
-            $request,
-            [
-                'title' => 'required|min:5',
-                'detail' => 'required|min:5',
-                'status' => 'required|min:4',
-                'owner' => 'required|min:4',
-              ]
-        );
         # Enter task into the database
-        $task = new \App\task();
+        $task = new \App\Task();
         $task->title = $request->title;
         $task->detail = $request->detail;
         $task->owner = $request->owner;
