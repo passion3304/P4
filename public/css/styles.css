@@ -91,13 +91,6 @@ ul.errors {
 /*----------------------------------------------------
 Flash message
 -----------------------------------------------------*/
-.flash_message {
-    width:100%;
-    text-align:center;
-    padding:5px;
-    position:fixed;
-    top:0;
-    left:0;
-    background-color:yellow;
+.alert {
     font-weight:bold;
 }

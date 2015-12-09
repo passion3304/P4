@@ -21,8 +21,9 @@ class taskController extends Controller {
         $task = \App\Task::find($id);
         
         if(is_null($task)) {
-            \Session::flash('flash_message','Task not found.');
-            return redirect('\tasks');
+            \Session::flash('flash_message','Oops task not found.');
+            \Session::flash('flash_type', 'alert-danger');
+            return redirect('tasks');
         }
 
         return view('tasks.edit')
@@ -39,7 +40,8 @@ class taskController extends Controller {
         $task->status = $request->status;
         $task->save();
 
-        \Session::flash('flash_message','Your task was updated.');
+        \Session::flash('flash_message','Success! Your task was updated.');
+        \Session::flash('flash_type', 'alert-success');
         return redirect('/tasks/edit/'.$request->id);
     }
     /**
@@ -88,7 +90,8 @@ class taskController extends Controller {
         $task->save();
 
         # Done
-        \Session::flash('flash_message','Your task was added!');
+        \Session::flash('flash_message','Success! Your task was added.');
+        \Session::flash('flash_type', 'alert-success');
         return redirect('/tasks');
         #return 'Process adding new task: '.$request->input('title');
     }
