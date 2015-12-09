@@ -17,27 +17,28 @@ class taskController extends Controller {
     * Responds to requests to GET /tasks/edit/{$id}
     */
     public function getEdit($id = null) {
+
         $task = \App\Task::find($id);
-        return view('tasks.edit')->with('task',$task);
+        
+        if(is_null($task)) {
+            \Session::flash('flash_message','Task not found.');
+            return redirect('\tasks');
+        }
+
+        return view('tasks.edit')
+            ->with('task',$task);
     }
     /**
     * Responds to requests to POST /tasks/edit
     */
     public function postEdit(Request $request) {
-        $task = \App\task::find($request->id);
+        $task = \App\Task::find($request->id);
         $task->title = $request->title;
-        $task->author_id = $request->author;
-        $task->cover = $request->cover;
-        $task->published = $request->published;
-        $task->purchase_link = $request->purchase_link;
+        $task->owner = $request->owner;
+        $task->detail = $request->detail;
+        $task->status = $request->status;
         $task->save();
-        if($request->tags) {
-            $tags = $request->tags;
-        }
-        else {
-            $tags = [];
-        }
-        $task->tags()->sync($tags);
+
         \Session::flash('flash_message','Your task was updated.');
         return redirect('/tasks/edit/'.$request->id);
     }
