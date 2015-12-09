@@ -27,6 +27,9 @@
     @if(\Session::has('flash_message'))
         <div class="alert {{ Session::get('flash_type') }}">
             {{ Session::get('flash_message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
         </div>
     @endif
 
