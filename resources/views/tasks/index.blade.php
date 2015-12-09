@@ -7,8 +7,8 @@
 @section('content')
     <div class='task'>
         @foreach($tasks as $task)
-            <h2>{{ $task->title }}</h2>
-            <img src='{{ $task->cover }}'>
+            <h1>{{ $task->title }}</h1>
+            <h2>{{ $task->detail }}</h2>
         @endforeach
     </div>
 @stop

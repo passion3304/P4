@@ -19,6 +19,7 @@ such as a page specific styesheets.
 @section('content')
 
     <h1>Add a new task</h1>
+    @include('errors')
     <form method='POST' action='/tasks/create'>
 
         <input type='hidden' value='{{ csrf_token() }}' name='_token'>

@@ -10,7 +10,7 @@ class taskController extends Controller {
     * Responds to requests to GET /tasks
     */
     public function getIndex(Request $request) {
-        $tasks = \App\Task::all();
+        $tasks = \App\Task::orderBy('id','DESC')->get();
         return view('tasks.index')->with('tasks',$tasks);
     }
     /**
@@ -68,6 +68,16 @@ class taskController extends Controller {
      */
     public function postCreate(Request $request) {
         
+        $this->validate(
+            $request,
+            [
+                'title' => 'required|min:5',
+                'detail' => 'required|min:5',
+                'owner' => 'required|min:5',
+                'status' => 'required|min:5',
+            ]
+        );
+        
         # Enter task into the database
         $task = new \App\Task();
         $task->title = $request->title;
@@ -79,6 +89,7 @@ class taskController extends Controller {
         # Done
         \Session::flash('flash_message','Your task was added!');
         return redirect('/tasks');
+        #return 'Process adding new task: '.$request->input('title');
     }
     /**
      * Responds to requests to GET /tasks/show/{title}
