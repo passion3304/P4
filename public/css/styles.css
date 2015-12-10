@@ -35,29 +35,7 @@ header, nav {
     padding-left:60px;
     padding-top:25px;
     padding-bottom: 20px;
-}
-
-nav ul {
-    list-style-type:none;
-    margin:0;
-    padding:0;
-}
-
-nav ul li {
-    display:inline;
-    background-color:#3399f3;
-    padding: 8px 10px;
-    margin-right:5px;
-}
-nav ul li:hover {
-    background-color:#87CEFA;
-}
-nav ul li a{
-    color: #FFF;
-}
-nav ul li a:hover{
-    color: #FFF;
-    text-decoration: none;
+    font-size: 18px;
 }
 
 

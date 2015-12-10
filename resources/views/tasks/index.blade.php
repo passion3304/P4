@@ -7,8 +7,8 @@
 @section('content')
     <div class='task'>
         @foreach($tasks as $task)
-            <h1>{{ $task->title }}</h1>
-            <h2>{{ $task->detail }}</h2>
+            <h2>{{ $task->title }}</h2>
+            <p>{{ $task->detail }}</p>
         @endforeach
     </div>
 @stop

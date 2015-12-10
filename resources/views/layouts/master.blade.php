@@ -40,15 +40,15 @@
     </header>
 
     <nav>
-        <ul>
+        <ul class="nav nav-pills">
             @if(Auth::check())
-                <li><a href='/'>Home</a></li>
-                <li><a href='/tasks/create'>Add a new task</a></li>
-                <li><a href='/logout'>Log out </a></li>
+                <li class="{{ Request::is('/') ? 'active' :'' }}" role="presentation"><a href='/'>Home</a></li>
+                <li class="{{ Request::is('tasks/create') ? 'active' :'' }}" role="presentation"><a href='/tasks/create'>Add a new task</a></li>
+                <li class="{{ Request::is('logout') ? 'active' :'' }}" role="presentation"><a href='/logout'>Log out </a></li>
             @else
-                <li><a href='/'>Home</a></li>
-                <li><a href='/login'>Log in</a></li>
-                <li><a href='/register'>Register</a></li>
+                <li class="{{ Request::is('/') ? 'active' :'' }}" role="presentation"><a href='/'>Home</a></li>
+                <li class="{{ Request::is('login') ? 'active' :'' }}" role="presentation"><a href='/login'>Log in</a></li>
+                <li class="{{ Request::is('register') ? 'active' :'' }}" role="presentation"><a href='/register'>Register</a></li>
             @endif
         </ul>
     </nav>
