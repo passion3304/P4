@@ -28,6 +28,6 @@
             <input type='checkbox' name='remember' id='remember'>
             <label for='remember' class='checkboxLabel'>Remember me</label>
         </fieldset>
-        <button type='submit' class='btn btn-primary'>Login</button>
+        <button type='submit' class="btn btn-primary btn-lg active" role="button">Login</button>
     </form>
 @stop

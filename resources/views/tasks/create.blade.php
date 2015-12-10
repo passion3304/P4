@@ -39,7 +39,7 @@ such as a page specific styesheets.
           <label for='owner'>Owner:</label>
           <input type='text' class='form-control' id='owner' name='owner' value='{{ old('owner','Brendan') }}'>
        </fieldset>
-       <button type='submit' class='btn btn-primary'>Add task</button>
+       <button type='submit' class="btn btn-primary btn-lg active" role="button">Add task</button>
     </form>
 
 @stop

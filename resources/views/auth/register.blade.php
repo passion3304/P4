@@ -32,7 +32,7 @@
             <label for='password_confirmation'>Confirm Password</label>
             <input type='password' class='form-control' name='password_confirmation' id='password_confirmation'>
         </fieldset>
-        <button type='submit' class='btn btn-primary'>Register</button>
+        <button type='submit' class="btn btn-primary btn-lg active" role="button">Register</button>
     </form>
 
 @stop

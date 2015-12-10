@@ -28,7 +28,7 @@
           <label for='owner'>Owner:</label>
           <input class='form-control' type='text' id='owner' name='owner' value='{{$task->owner}}'>
        </fieldset>
-       <button type='submit' class='btn btn-primary'>Save Changes</button>
+       <button type='submit' class="btn btn-primary btn-lg active" role="button">Save changes</button>
     </form>
 
 @stop
