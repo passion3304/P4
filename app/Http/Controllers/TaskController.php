@@ -17,9 +17,7 @@ class taskController extends Controller {
     * Responds to requests to GET /tasks/edit/{$id}
     */
     public function getEdit($id = null) {
-
-        $task = \App\Task::find($id);
-        
+        $task = \App\Task::find($id); 
         if(is_null($task)) {
             \Session::flash('flash_message','Oops task not found.');
             \Session::flash('flash_type', 'alert-danger');
@@ -43,6 +41,27 @@ class taskController extends Controller {
         \Session::flash('flash_message','Success! Your task was updated.');
         \Session::flash('flash_type', 'alert-success');
         return redirect('/tasks/edit/'.$request->id);
+    }
+    /**
+     * Responds to requests to GET /tasks/delete
+     */
+    public function getConfirmDelete($id = null) {
+        $task = \App\Task::find($id); 
+
+        return view('tasks.delete')
+            ->with('task',$task);
+    }
+    public function getDoDelete($id = null) {
+        $task = \App\Task::find($id);
+        if(is_null($task)) {
+            \Session::flash('flash_message','Oops task not found.');
+            \Session::flash('flash_type', 'alert-danger');
+            return redirect('tasks');
+        }
+        $task->delete();
+        \Session::flash('flash_message','Success! '. $task->title.' was deleted.');
+        \Session::flash('flash_type', 'alert-success');
+        return redirect('tasks');
     }
     /**
      * Responds to requests to GET /tasks/create
@@ -115,25 +134,5 @@ class taskController extends Controller {
         else {
             echo 'No tasks found';
         }
-    }
-    public function getConfirmDelete($task_id) {
-        $task = \App\task::find($task_id);
-        return view('tasks.delete')->with('task', $task);
-    }
-    /**
-	*
-	*/
-    public function getDoDelete($task_id) {
-        $task = \App\task::find($task_id);
-        if(is_null($task)) {
-            \Session::flash('flash_message','task not found.');
-            return redirect('\tasks');
-        }
-        if($task->tags()) {
-            $task->tags()->detach();
-        }
-        $task->delete();
-        \Session::flash('flash_message',$task->title.' was deleted.');
-        return redirect('/tasks');
     }
 }
