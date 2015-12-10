@@ -28,12 +28,14 @@ Route::get('/practice', function() {
 /*----------------------------------------------------
 /tasks
 -----------------------------------------------------*/
-Route::get('/tasks/create', 'taskController@getCreate');
-Route::post('/tasks/create', 'taskController@postCreate');
-Route::get('/tasks/edit/{id?}', 'taskController@getEdit');
-Route::post('/tasks/edit', 'taskController@postEdit');
-Route::get('/tasks/confirm-delete/{id?}', 'taskController@getConfirmDelete');
-Route::get('/tasks/delete/{id?}', 'taskController@getDoDelete');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/tasks/create', 'taskController@getCreate');
+    Route::post('/tasks/create', 'taskController@postCreate');
+    Route::get('/tasks/edit/{id?}', 'taskController@getEdit');
+    Route::post('/tasks/edit', 'taskController@postEdit');
+    Route::get('/tasks/confirm-delete/{id?}', 'taskController@getConfirmDelete');
+    Route::get('/tasks/delete/{id?}', 'taskController@getDoDelete');
+});
 Route::get('/tasks', 'taskController@getIndex');
 Route::get('/tasks/show/{title?}', 'taskController@getShow');
 Route::get('/tasks/all', 'taskController@getAll');

@@ -46,7 +46,12 @@ class taskController extends Controller {
      * Responds to requests to GET /tasks/delete
      */
     public function getConfirmDelete($id = null) {
-        $task = \App\Task::find($id); 
+        $task = \App\Task::find($id);
+        if(is_null($task)) {
+            \Session::flash('flash_message','Oops task not found.');
+            \Session::flash('flash_type', 'alert-danger');
+            return redirect('tasks');
+        }
 
         return view('tasks.delete')
             ->with('task',$task);
