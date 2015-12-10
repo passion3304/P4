@@ -31,9 +31,10 @@ footer {
 /* End Sticky Footer */
 
 
-section, header, nav {
-    padding-left:25px;
+header, nav {
+    padding-left:60px;
     padding-top:25px;
+    padding-bottom: 20px;
 }
 
 nav ul {
@@ -63,6 +64,10 @@ nav ul li a:hover{
 /*----------------------------------------------------
 Forms
 -----------------------------------------------------*/
+form {
+    margin-top:10px;
+}
+
 label {
     margin-top:10px;
     margin-bottom:0;
@@ -73,8 +78,7 @@ label {
     display:inline;
 }
 
-input[type=text],input[type=password],select {
-    width:300px;
+.form-control,select {
     font-size:20px;
 }
 

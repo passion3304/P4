@@ -16,29 +16,23 @@
 
     <form method='POST' action='/register'>
         {!! csrf_field() !!}
-
-        <div class='form-group'>
+        <fieldset class='form-group'>
             <label for='name'>Name</label>
-            <input type='text' name='name' id='name' value='{{ old('name') }}'>
-        </div>
-
-        <div class='form-group'>
+            <input type='text' class='form-control' name='name' id='name' value='{{ old('name') }}'>
+        </fieldset>
+        <fieldset class='form-group'>
             <label for='email'>Email</label>
-            <input type='text' name='email' id='email' value='{{ old('email') }}'>
-        </div>
-
-        <div class='form-group'>
+            <input type='text' class='form-control' name='email' id='email' value='{{ old('email') }}'>
+        </fieldset>
+        <fieldset class='form-group'>
             <label for='password'>Password</label>
-            <input type='password' name='password' id='password'>
-        </div>
-
-        <div class='form-group'>
+            <input type='password' class='form-control' name='password' id='password'>
+        </fieldset>
+        <fieldset class='form-group'>
             <label for='password_confirmation'>Confirm Password</label>
-            <input type='password' name='password_confirmation' id='password_confirmation'>
-        </div>
-
+            <input type='password' class='form-control' name='password_confirmation' id='password_confirmation'>
+        </fieldset>
         <button type='submit' class='btn btn-primary'>Register</button>
-
     </form>
 
 @stop

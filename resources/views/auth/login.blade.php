@@ -15,25 +15,19 @@
     @endif
 
     <form method='POST' action='/login'>
-
         {!! csrf_field() !!}
-
-        <div class='form-group'>
+        <fieldset class='form-group'>
             <label for='email'>Email</label>
-            <input type='text' name='email' id='email' value='{{ old('email') }}'>
-        </div>
-
-        <div class='form-group'>
+            <input type='text' class='form-control' name='email' id='email' value='{{ old('email') }}'>
+        </fieldset>
+        <fieldset class='form-group'>
             <label for='password'>Password</label>
-            <input type='password' name='password' id='password' value='{{ old('password') }}'>
-        </div>
-
-        <div class='form-group'>
+            <input type='password' class='form-control' name='password' id='password' value='{{ old('password') }}'>
+        </fieldset>
+        <fieldset class='form-group'>
             <input type='checkbox' name='remember' id='remember'>
             <label for='remember' class='checkboxLabel'>Remember me</label>
-        </div>
-
+        </fieldset>
         <button type='submit' class='btn btn-primary'>Login</button>
-
     </form>
 @stop

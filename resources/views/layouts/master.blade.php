@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>
-        {{-- Yield the title if it exists, otherwise default to 'Footasks' --}}
-        @yield('title','Footasks')
+        {{-- Yield the title if it exists, otherwise default to 'TaskMaster' --}}
+        @yield('title','TaskMaster')
     </title>
 
     <meta charset='utf-8'>
@@ -54,8 +54,14 @@
     </nav>
 
     <section>
-        {{-- Main page content will be yielded here --}}
-        @yield('content')
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+            {{-- Main page content will be yielded here --}}
+            @yield('content')
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
