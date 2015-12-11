@@ -40,7 +40,7 @@ class taskController extends Controller {
 
         \Session::flash('flash_message','Success! Your task was updated.');
         \Session::flash('flash_type', 'alert-success');
-        return redirect('/tasks/edit/'.$request->id);
+        return redirect('tasks');
     }
     /**
      * Responds to requests to GET /tasks/delete

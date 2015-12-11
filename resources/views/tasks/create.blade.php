@@ -33,7 +33,11 @@ such as a page specific styesheets.
        </fieldset>
        <fieldset class='form-group'>
           <label for='status'>* Status:</label>
-          <input type='text' class='form-control' id='status' name='status' value='{{ old('status','Not Started') }}'>
+          <select class='form-control' id='status' name='status'>
+            <option value='Not Started'>Not Started</option>
+            <option value='In Progress'>In Progress</option>
+            <option value='Completed'>Completed</option>
+          </select>
        </fieldset>
        <fieldset class='form-group'>
           <label for='owner'>Owner:</label>
