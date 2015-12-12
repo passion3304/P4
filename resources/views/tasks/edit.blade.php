@@ -6,9 +6,10 @@
 
 
 @section('content')
+<script src='/js/form.js'></script>
 
 <h1>Edit: {{$task->title}}</h1>
-    <form method='POST' action='/tasks/edit'>
+    <form name='saveForm' method='POST' action='/tasks/edit'>
        <input type='hidden' value='{{ csrf_token() }}' name='_token'>
        <input type='hidden' name='id' value='{{ $task->id }}'>
        <input type='hidden' value='{{ csrf_token() }}' name='_token'>
@@ -32,7 +33,13 @@
           <label for='owner'>Owner:</label>
           <input class='form-control' type='text' id='owner' name='owner' value='{{$task->owner}}'>
        </fieldset>
-       <button type='submit' class="btn btn-primary btn-lg active" role="button">Save changes</button>
+       
+       <ul class='nav nav-pills'>
+        <li><a href='javascript: submitform()'><span class='glyphicon glyphicon-floppy-disk' aria-hidden='true'></span>    Save changes</a></a></li>
+        <li>
+       <a class='trash' href='/tasks/confirm-delete/{{$task->id}}'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span>    Delete task</a></li>
+     </ul>
     </form>
+    
 
 @stop

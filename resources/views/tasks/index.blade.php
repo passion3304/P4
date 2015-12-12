@@ -11,6 +11,7 @@
         		<div class="col-md-8">
             		<h2>{{ $task->title }}</h2>
             		<p>{{ $task->detail }}</p>
+            		<p>{{ $task->status }}</p>
             	</div>  
             	<div class="col-md-4">	
             		<ul class="nav nav-pills" id="edit">
