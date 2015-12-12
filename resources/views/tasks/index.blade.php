@@ -6,6 +6,12 @@
 
 @section('content')
     <div class='Main'>
+    	<ul class="nav nav-tabs">
+            <li class="active"><a href="#">All My Tasks</a></li>
+            <li><a href="#">Not Started</a></li>
+            <li><a href="#">In Progress</a></li>
+            <li><a href="#">Completed</a></li>
+        </ul>
         @foreach($tasks as $task)
         	<div class="row">
         		<div class="col-md-8">

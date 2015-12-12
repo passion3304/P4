@@ -67,9 +67,6 @@ select#status.form-control {
     padding-top: 1px;
 }
 
-textarea#detail.form-control {
-    padding-left: 0px;
-}
 .trash {
     float: right;
     padding-top: 20px;

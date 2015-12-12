@@ -33,11 +33,6 @@
         </div>
     @endif
     <div class="container">
-        <header>
-            <a href='/'>
-            <img src='/images/MainLogo.PNG' alt='TaskMaster Logo' class="MainLogo">
-            </a>
-        </header>
 
         <nav>
             <ul class="nav nav-pills">
@@ -52,6 +47,11 @@
                 @endif
             </ul>
         </nav>
+        <header>
+            <a href='/'>
+            <img src='/images/MainLogo.PNG' alt='TaskMaster Logo' class="MainLogo">
+            </a>
+        </header>
     </div>
 
     <section>
