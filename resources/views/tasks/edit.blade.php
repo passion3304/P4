@@ -7,7 +7,7 @@
 
 @section('content')
 <script src='/js/form.js'></script>
-<div class="col-md-12">
+<div class="col-md-10">
   <h1>Edit: {{$task->title}}</h1>
       <form name='saveForm' method='POST' action='/tasks/edit'>
          <input type='hidden' value='{{ csrf_token() }}' name='_token'>

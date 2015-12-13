@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-
+<div class="col-md-12">
     <p>Already have an account? <a href='/login'>Login here...</a></p>
-
     <h1>Register</h1>
-
+   
     @if(count($errors) > 0)
         <ul class='errors'>
             @foreach ($errors->all() as $error)
@@ -13,7 +12,7 @@
             @endforeach
         </ul>
     @endif
-
+    
     <form method='POST' action='/register'>
         {!! csrf_field() !!}
         <fieldset class='form-group'>
@@ -34,5 +33,5 @@
         </fieldset>
         <button type='submit' class="btn btn-primary btn-lg active" role="button">Register</button>
     </form>
-
+</div>
 @stop

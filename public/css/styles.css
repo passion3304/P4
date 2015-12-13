@@ -86,9 +86,6 @@ ul.errors {
     list-style-type:none;
 }
 
-ul#edit.nav.nav-pills {
-    margin-top: 30px;
-}
 
 /*----------------------------------------------------
 Flash message
@@ -103,4 +100,8 @@ misc
 .user-name {
     float: right;
     padding-top: 10px;
+}
+
+.created {
+    margin-top: 30px;
 }

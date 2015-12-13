@@ -14,11 +14,10 @@ such as a page specific styesheets.
     {{-- <link href="/css/tasks/create.css" type='text/css' rel='stylesheet'> --}}
 @stop
 
-
-
-@section('content')
-<h1>Add a new task</h1>
-@include('errors')
+  @section('content')
+  <div class="col-md-10">
+    <h1>Add a new task</h1>
+  @include('errors')
 
     <form method='POST' action='/tasks/create'>
        <fieldset class='form-group'>
@@ -45,6 +44,7 @@ such as a page specific styesheets.
        </fieldset>
        <button type='submit' class="btn btn-primary btn-lg active" role="button">Add task</button>
     </form>
+</div>
 
 @stop
 
