@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    All the tasks
+    My Tasks
 @stop
 
 @section('content')

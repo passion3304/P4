@@ -96,3 +96,11 @@ Flash message
 .alert {
     font-weight:bold;
 }
+
+/*----------------------------------------------------
+misc
+-----------------------------------------------------*/
+.user-name {
+    float: right;
+    padding-top: 10px;
+}
