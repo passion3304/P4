@@ -40,7 +40,7 @@
                     <li class="{{ Request::is('/') ? 'active' :'' }}" role="presentation"><a href='/'>Home</a></li>
                     <li class="{{ Request::is('tasks/create') ? 'active' :'' }}" role="presentation"><a href='/tasks/create'>Add a new task</a></li>
                     <li class="{{ Request::is('logout') ? 'active' :'' }}" role="presentation"><a href='/logout'>Log out </a></li>
-                    <p class="user-name">Logged in as {{$user->name}}<p/>
+                    <p class="user-name">Logged in as {{$user->name}}  <span class="glyphicon glyphicon-user" aria-hidden="true"></span><p/>
                 @else
                     <li class="{{ Request::is('/') ? 'active' :'' }}" role="presentation"><a href='/'>Home</a></li>
                     <li class="{{ Request::is('login') ? 'active' :'' }}" role="presentation"><a href='/login'>Log in</a></li>

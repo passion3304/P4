@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-
+<div class="col-md-12">
     <p>Don't have an account? <a href='/register'>Register here...</a></p>
 
     <h1>Login</h1>
@@ -30,4 +30,5 @@
         </fieldset>
         <button type='submit' class="btn btn-primary btn-lg active" role="button">Login</button>
     </form>
+</div>
 @stop
