@@ -27,6 +27,7 @@
             		</ul>
             	</div>
             </div>
+            <hr>
         @endforeach
         @else
             <div class="row">
