@@ -7,7 +7,7 @@
 @section('content')
     <div class='Main'>
         @if(Auth::check())
-    	<ul class="nav nav-tabs">
+    	<ul class="nav nav-tabs" id="sort-tabs">
             <li class="active"><a href="#">All My Tasks</a></li>
             <li><a href="#">Not Started</a></li>
             <li><a href="#">In Progress</a></li>

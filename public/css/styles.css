@@ -114,13 +114,12 @@ misc
 /*----------------------------------------------------
 media queries for mobile
 -----------------------------------------------------*/
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) 
+@media (min-width : 375px) 
+and (max-width : 667px) 
 and (orientation : portrait) { 
 
 nav {
-    font-size: 16px;
+    font-size: 15px;
 }
 .user-name, header {
     text-align: center;
@@ -128,6 +127,20 @@ nav {
 #edit {
     padding-top: 17px;
     float: left;
+}
+.created {
+    margin-top: 26px;
+}
+#sort-tabs>li.active>a, #sort-tabs>li.active>a:hover, #sort-tabs>li.active>a:focus{
+    border-bottom: 1px solid #dddddd
+
+}
+#sort-tabs>li.active>a, #sort-tabs>li.active>a:focus, #sort-tabs>li.active>a:hover {
+    border-bottom: 1px solid #dddddd
+}
+#sort-tabs>li {
+    float: none;
+    text-align: center;
 }
 
 }
