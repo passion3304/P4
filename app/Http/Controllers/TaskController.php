@@ -10,7 +10,7 @@ class taskController extends Controller {
     * Responds to requests to GET /tasks
     */
     public function getIndex(Request $request) {
-        $tasks = \App\Task::orderBy('id','DESC')->get();
+        $tasks = \App\Task::where('user_id','=',\Auth::id())->orderBy('id','DESC')->get();
         return view('tasks.index')->with('tasks',$tasks);
     }
     /**
@@ -110,6 +110,7 @@ class taskController extends Controller {
         $task->title = $request->title;
         $task->detail = $request->detail;
         $task->owner = $request->owner;
+        $task->user_id = \Auth::id();
         $task->status = $request->status;
         $task->save();
 

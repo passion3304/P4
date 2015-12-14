@@ -17,22 +17,26 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane fade in active" id="A">
-                @foreach($tasks as $task)
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h2>{{ $task->title }}</h2>
-                            <p>{{ $task->detail }}</p>
-                            <p>{{ $task->status }}</p>
-                        </div>  
-                        <div class="col-md-4">
-                            <p class="created right">Created: {{ $task->created_at }}</p>
-                            <ul class="nav nav-pills right" id="edit">
-                                <li role="presentation"><a href='/tasks/edit/{{ $task->id }}'> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>    Edit task</a></li>
-                            </ul>
+                @if(sizeof($tasks) ==0)
+                    <p class="padding-top">You have not entered any tasks yet, <a href='/tasks/create'>want to add one?</a></p>
+                @else
+                    @foreach($tasks as $task)
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h2>{{ $task->title }}</h2>
+                                <p>{{ $task->detail }}</p>
+                                <p>{{ $task->status }}</p>
+                            </div>  
+                            <div class="col-md-4">
+                                <p class="created right">Created: {{ $task->created_at }}</p>
+                                <ul class="nav nav-pills right" id="edit">
+                                    <li role="presentation"><a href='/tasks/edit/{{ $task->id }}'> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>    Edit task</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                @endforeach
+                        <hr>
+                    @endforeach
+                @endif
             </div>
             <div class="tab-pane fade" id="B">
                 @foreach($tasks as $task)

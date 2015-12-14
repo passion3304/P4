@@ -16,6 +16,7 @@ class TasksTableSeeder extends Seeder
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
 	       	'owner' => 'Jill',
 	        'title' => 'Mow the lawn',
+	        'user_id'=>1,
 	        'detail' => 'Cut the grass in the front and side yard. Weedwack the walkway.',
 	        'status' => 'Not started',
 	    ]);
@@ -24,6 +25,7 @@ class TasksTableSeeder extends Seeder
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'owner' => 'Jamal',
 	        'title' => 'Paint shed',
+	        'user_id'=>1,
 	        'detail' => 'Paint the shed in the backyard',
 	        'status' => 'Completed',
 	    ]);
@@ -31,6 +33,7 @@ class TasksTableSeeder extends Seeder
 	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'owner' => 'Brendan Murphy',
+	        'user_id'=>1,
 	        'title' => 'Complete final project',
 	        'detail' => 'Complete P4 for Dynamic Web Applications.',
 	        'status' => 'In progress',
