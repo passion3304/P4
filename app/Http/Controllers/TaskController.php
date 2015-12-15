@@ -25,14 +25,21 @@ class taskController extends Controller {
     */
     public function getEdit($id = null) {
         $task = \App\Task::find($id); 
+
+        $ownerModel = new \App\owner();
+        $owners_for_dropdown = $ownerModel->getownersForDropdown();
+    
         if(is_null($task)) {
             \Session::flash('flash_message','Oops task not found.');
             \Session::flash('flash_type', 'alert-danger');
             return redirect('tasks');
         }
 
-        return view('tasks.edit')
-            ->with('task',$task);
+       return view('tasks.edit')
+            ->with([
+                'task' => $task,
+                'owners_for_dropdown' => $owners_for_dropdown,
+            ]);
     }
     /**
     * Responds to requests to POST /tasks/edit
@@ -79,23 +86,10 @@ class taskController extends Controller {
      * Responds to requests to GET /tasks/create
      */
     public function getCreate() {
-        return view('tasks.create');
+        $ownerModel = new \App\owner();
+        $owners_for_dropdown = $ownerModel->getownersForDropdown();
 
-        # Instantiate a new task Model object
-        #$task = new \App\Task();
-
-        # Set the parameters
-        # Note how each parameter corresponds to a field in the table
-        #$task->title = 'New Task';
-        #$task->detail = 'Go to the Store';
-        #$task->owner = 'Charlie';
-        #$task->status = 'In progress';
-
-        # Invoke the Eloquent save() method
-        # This will generate a new row in the `tasks` table, with the above data
-        #$task->save();
-
-        #echo 'Added: '.$task->title;
+    return view('tasks.create')->with('owners_for_dropdown',$owners_for_dropdown);
     }
     /**
      * Responds to requests to POST /tasks/create
@@ -107,7 +101,6 @@ class taskController extends Controller {
             [
                 'title' => 'required|min:5',
                 'detail' => 'required|min:5',
-                'owner' => 'required|min:4',
                 'status' => 'required|min:5',
             ]
         );
@@ -116,7 +109,7 @@ class taskController extends Controller {
         $task = new \App\Task();
         $task->title = $request->title;
         $task->detail = $request->detail;
-        $task->owner = $request->owner;
+        $task->owner_id = $request->owner;
         $task->user_id = \Auth::id();
         $task->status = $request->status;
         $task->save();

@@ -31,7 +31,11 @@
          </fieldset>
          <fieldset class='form-group'>
             <label for='owner'>Assigned to:</label>
-            <input class='form-control' type='text' id='owner' name='owner' value='{{$task->owner}}'>
+            <select name='owner' id='owner'>
+            @foreach($owners_for_dropdown as $owner_id => $owner_name)
+              <option value='{{ $owner_id }}'> {{ $owner_name }} </option>
+             @endforeach
+            </select>
          </fieldset>
          
          <ul class='nav nav-pills'>

@@ -40,7 +40,11 @@ such as a page specific styesheets.
        </fieldset>
        <fieldset class='form-group'>
           <label for='owner'>Assigned to:</label>
-          <input type='text' class='form-control' id='owner' name='owner' value='{{ old('owner','Brendan') }}'>
+                      <select name='owner' id='owner'>
+            @foreach($owners_for_dropdown as $owner_id => $owner_name)
+              <option value='{{ $owner_id }}'> {{ $owner_name }} </option>
+             @endforeach
+            </select>
        </fieldset>
        <button type='submit' class="btn btn-primary btn-lg active" role="button">Add task</button>
     </form>
