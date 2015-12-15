@@ -47,7 +47,7 @@ class taskController extends Controller {
     public function postEdit(Request $request) {
         $task = \App\Task::find($request->id);
         $task->title = $request->title;
-        $task->owner = $request->owner;
+        $task->owner_id = $request->owner;
         $task->detail = $request->detail;
         $task->status = $request->status;
         $task->save();

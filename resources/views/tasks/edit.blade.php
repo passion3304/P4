@@ -31,7 +31,7 @@
          </fieldset>
          <fieldset class='form-group'>
             <label for='owner'>Assigned to:</label>
-            <select name='owner' id='owner'>
+            <select name='owner_id' id='owner_id'>
             @foreach($owners_for_dropdown as $owner_id => $owner_name)
               <option value='{{ $owner_id }}'> {{ $owner_name }} </option>
              @endforeach
