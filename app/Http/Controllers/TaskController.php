@@ -11,7 +11,14 @@ class taskController extends Controller {
     */
     public function getIndex(Request $request) {
         $tasks = \App\Task::where('user_id','=',\Auth::id())->orderBy('id','DESC')->get();
-        return view('tasks.index')->with('tasks',$tasks);
+        $completedTasks = \App\Task::where('status','=','Completed')->get();
+        $inProgressTasks = \App\Task::where('status','=','In progress')->get();
+        $notStartedTasks = \App\Task::where('status','=','Not Started')->get();
+        return view('tasks.index')
+            ->with('tasks',$tasks)
+            ->with('notStartedTasks',$notStartedTasks)
+            ->with('inProgressTasks',$inProgressTasks)
+            ->with('completedTasks',$completedTasks);
     }
     /**
     * Responds to requests to GET /tasks/edit/{$id}
@@ -100,7 +107,7 @@ class taskController extends Controller {
             [
                 'title' => 'required|min:5',
                 'detail' => 'required|min:5',
-                'owner' => 'required|min:5',
+                'owner' => 'required|min:4',
                 'status' => 'required|min:5',
             ]
         );
