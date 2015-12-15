@@ -30,7 +30,7 @@
             </select>
          </fieldset>
          <fieldset class='form-group'>
-            <label for='owner'>Owner:</label>
+            <label for='owner'>Assigned to:</label>
             <input class='form-control' type='text' id='owner' name='owner' value='{{$task->owner}}'>
          </fieldset>
          
