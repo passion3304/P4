@@ -26,7 +26,7 @@ class taskController extends Controller {
     public function getEdit($id = null) {
         $task = \App\Task::find($id); 
 
-        $ownerModel = new \App\owner();
+        $ownerModel = new \App\Owner();
         $owners_for_dropdown = $ownerModel->getownersForDropdown();
     
         if(is_null($task)) {
