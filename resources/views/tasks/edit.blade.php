@@ -33,7 +33,8 @@
             <label for='owner'>Assigned to:</label>
             <select name='owner' id='owner'>
             @foreach($owners_for_dropdown as $owner_id => $owner_name)
-              <option value='{{ $owner_id }}'> {{ $owner_name }} </option>
+                {{ $selected = ($owner_id == $task->owner->id) ? 'selected' : '' }}
+                <option value='{{ $owner_id }}' {{ $selected }}> {{ $owner_name }} </option>
              @endforeach
             </select>
          </fieldset>

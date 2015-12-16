@@ -14,14 +14,17 @@ class taskController extends Controller {
                     ->orderBy('id','DESC');
         $completedTasks = \App\Task::where('status','=','Completed')
                     ->union($userTasks)
+                    ->with('owner')
                     ->get();
         $inProgressTasks = \App\Task::where('status','=','In progress')
                     ->union($userTasks)
+                    ->with('owner')
                     ->get();
         $notStartedTasks = \App\Task::where('status','=','Not Started')
                     ->union($userTasks)
+                    ->with('owner')
                     ->get();
-        $tasks =  $userTasks->get();
+        $tasks =  $userTasks->with('owner')->get();
         return view('tasks.index')
             ->with('tasks',$tasks)
             ->with('notStartedTasks',$notStartedTasks)

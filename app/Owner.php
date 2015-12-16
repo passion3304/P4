@@ -23,5 +23,5 @@ class Owner extends Model
 
     return $owners_for_dropdown;
 
-}
+    }
 }
