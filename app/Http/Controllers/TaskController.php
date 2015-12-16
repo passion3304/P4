@@ -86,7 +86,7 @@ class taskController extends Controller {
      * Responds to requests to GET /tasks/create
      */
     public function getCreate() {
-        $ownerModel = new \App\owner();
+        $ownerModel = new \App\Owner();
         $owners_for_dropdown = $ownerModel->getownersForDropdown();
 
     return view('tasks.create')->with('owners_for_dropdown',$owners_for_dropdown);
