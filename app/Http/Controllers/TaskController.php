@@ -12,16 +12,16 @@ class taskController extends Controller {
     public function getIndex(Request $request) {
         $userTasks = \App\Task::where('user_id','=',\Auth::id())
                     ->orderBy('id','DESC');
-        $completedTasks = \App\Task::where('status','=','Completed')
-                    ->union($userTasks)
+        $completedTasks =  \App\Task::where('status','=','Completed')
+                    ->where('user_id','=',\Auth::id())
                     ->with('owner')
                     ->get();
         $inProgressTasks = \App\Task::where('status','=','In progress')
-                    ->union($userTasks)
+                    ->where('user_id','=',\Auth::id())
                     ->with('owner')
                     ->get();
         $notStartedTasks = \App\Task::where('status','=','Not Started')
-                    ->union($userTasks)
+                    ->where('user_id','=',\Auth::id())
                     ->with('owner')
                     ->get();
         $tasks =  $userTasks->with('owner')->get();
