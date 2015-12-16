@@ -117,9 +117,7 @@ misc
 /*----------------------------------------------------
 media queries for mobile
 -----------------------------------------------------*/
-@media (min-width : 375px) 
-and (max-width : 667px) 
-and (orientation : portrait) { 
+@media only screen and (min-device-width: 370px) and (max-device-width: 480px) { 
 
 nav {
     font-size: 15px;
