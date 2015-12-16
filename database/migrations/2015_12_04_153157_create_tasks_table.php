@@ -20,7 +20,6 @@ class CreateTasksTable extends Migration
             # The rest of the fields...
             $table->string('title');
             $table->string('detail');
-            $table->string('owner');
             $table->string('status');
         });
     }

@@ -10,10 +10,18 @@ class taskController extends Controller {
     * Responds to requests to GET /tasks
     */
     public function getIndex(Request $request) {
-        $tasks = \App\Task::where('user_id','=',\Auth::id())->orderBy('id','DESC')->get();
-        $completedTasks = \App\Task::where('status','=','Completed')->get();
-        $inProgressTasks = \App\Task::where('status','=','In progress')->get();
-        $notStartedTasks = \App\Task::where('status','=','Not Started')->get();
+        $userTasks = \App\Task::where('user_id','=',\Auth::id())
+                    ->orderBy('id','DESC');
+        $completedTasks = \App\Task::where('status','=','Completed')
+                    ->union($userTasks)
+                    ->get();
+        $inProgressTasks = \App\Task::where('status','=','In progress')
+                    ->union($userTasks)
+                    ->get();
+        $notStartedTasks = \App\Task::where('status','=','Not Started')
+                    ->union($userTasks)
+                    ->get();
+        $tasks =  $userTasks->get();
         return view('tasks.index')
             ->with('tasks',$tasks)
             ->with('notStartedTasks',$notStartedTasks)

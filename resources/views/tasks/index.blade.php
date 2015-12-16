@@ -26,6 +26,7 @@
                                 <h2>{{ $task->title }}</h2>
                                 <p>{{ $task->detail }}</p>
                                 <p>{{ $task->status }}</p>
+                                <p>Assigned to {{ $task->owner->first_name }}</p>
                             </div>  
                             <div class="col-md-4">
                                 <p class="created right">Created: {{ $task->created_at }}</p>
@@ -45,6 +46,7 @@
                             <h2>{{ $task->title }}</h2>
                             <p>{{ $task->detail }}</p>
                             <p>{{ $task->status }}</p>
+                            <p>Assigned to {{ $task->owner->first_name }}</p>
                         </div>  
                         <div class="col-md-4">
                             <p class="created right">Created: {{ $task->created_at }}</p>
@@ -63,6 +65,7 @@
                             <h2>{{ $task->title }}</h2>
                             <p>{{ $task->detail }}</p>
                             <p>{{ $task->status }}</p>
+                            <p>Assigned to {{ $task->owner->first_name }}</p>
                         </div>  
                         <div class="col-md-4">
                             <p class="created right">Created: {{ $task->created_at }}</p>
@@ -81,6 +84,7 @@
                             <h2>{{ $task->title }}</h2>
                             <p>{{ $task->detail }}</p>
                             <p>{{ $task->status }}</p>
+                            <p>Assigned to {{ $task->owner->first_name }}</p>
                         </div>  
                         <div class="col-md-4">
                             <p class="created right">Created: {{ $task->created_at }}</p>
