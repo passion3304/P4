@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    My Tasks
+    Taskmaster
 @stop
 
 @section('content')

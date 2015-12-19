@@ -9,14 +9,18 @@
     <meta charset='utf-8'>
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta property='og:title' content='TaskMaster'/>
+    <meta property='og:image' content='/images/MainLogo.PNG'/>
+    <meta property='og:description' content='Your personal task tracking assistant'/>
+    <meta property='og:url' content='http://p4.brendanmurph.com' />
 
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'>
 
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'>
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/spacelab/bootstrap.min.css" rel="stylesheet" integrity="sha256-j7Dtnd7ZjexEiPNbscbopFn9+Cs0b3TLipKsWAPHZIM= sha512-RFhfi6P8zWMAJrEGU+CPjuxPh3r/UUBGqQ+/o6WKPIVZmQqeOipGotH2ihRULuQ8wsMBoK15TSZqc/7VYWyuIw==" crossorigin="anonymous">
+    <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/spacelab/bootstrap.min.css' rel='stylesheet' integrity='sha256-j7Dtnd7ZjexEiPNbscbopFn9+Cs0b3TLipKsWAPHZIM= sha512-RFhfi6P8zWMAJrEGU+CPjuxPh3r/UUBGqQ+/o6WKPIVZmQqeOipGotH2ihRULuQ8wsMBoK15TSZqc/7VYWyuIw==' crossorigin='anonymous'>
 
     <link href='/css/styles.css' rel='stylesheet'>
-    <link rel="shortcut icon" type="image/png" href="/images/tasks.png">
+    <link rel='shortcut icon' type='image/png' href='/images/tasks.png'>
 
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
@@ -25,41 +29,41 @@
 <body>
 
     @if(\Session::has('flash_message'))
-        <div class="alert {{ Session::get('flash_type') }}">
+        <div class='alert {{ Session::get('flash_type') }}'>
             {{ Session::get('flash_message') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>×</span>
             </button>
         </div>
     @endif
-    <div class="container"> 
-        <div class="col-md-12">
+    <div class='container'> 
+        <div class='col-md-12'>
         <nav>
-            <ul class="nav nav-pills">
+            <ul class='nav nav-pills'>
                 @if(Auth::check())
-                    <li class="{{ Request::is('/') ? 'active' :'' }}" role="presentation"><a href='/'>Home</a></li>
-                    <li class="{{ Request::is('tasks/create') ? 'active' :'' }}" role="presentation"><a href='/tasks/create'>Add a new task</a></li>
-                    <li class="{{ Request::is('logout') ? 'active' :'' }}" role="presentation"><a href='/logout'>Log out </a></li>
-                    <p class="user-name">Logged in as {{$user->name}}  <span class="glyphicon glyphicon-user" aria-hidden="true"></span><p/>
+                    <li class='{{ Request::is('/') ? 'active' :'' }}' role='presentation'><a href='/'>Home</a></li>
+                    <li class='{{ Request::is('tasks/create') ? 'active' :'' }}' role='presentation'><a href='/tasks/create'>Add a new task</a></li>
+                    <li class='{{ Request::is('logout') ? 'active' :'' }}' role='presentation'><a href='/logout'>Log out </a></li>
+                    <p class='user-name'>Logged in as {{$user->name}}  <span class='glyphicon glyphicon-user' aria-hidden='true'></span><p/>
                 @else
-                    <li class="{{ Request::is('/') ? 'active' :'' }}" role="presentation"><a href='/'>Home</a></li>
-                    <li class="{{ Request::is('login') ? 'active' :'' }}" role="presentation"><a href='/login'>Log in</a></li>
-                    <li class="{{ Request::is('register') ? 'active' :'' }}" role="presentation"><a href='/register'>Register</a></li>
+                    <li class='{{ Request::is('/') ? 'active' :'' }}' role='presentation'><a href='/'>Home</a></li>
+                    <li class='{{ Request::is('login') ? 'active' :'' }}' role='presentation'><a href='/login'>Log in</a></li>
+                    <li class='{{ Request::is('register') ? 'active' :'' }}' role='presentation'><a href='/register'>Register</a></li>
                 @endif
             </ul>
         </nav>
         <header>
             <a href='/'>
-            <img src='/images/MainLogo.PNG' alt='TaskMaster Logo' class="MainLogo">
+            <img src='/images/MainLogo.PNG' alt='TaskMaster Logo' class='MainLogo'>
             </a>
         </header>
         </div>
     </div>
 
     <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
+        <div class='container'>
+            <div class='row'>
+                <div class='col-md-8'>
                     {{-- Main page content will be yielded here --}}
                     @yield('content')
                 </div>
@@ -73,8 +77,8 @@
         <a href='http://p4.brendanmurph.com/' class='fa fa-link' target='_blank'> View Live</a>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 
 
     {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
